@@ -1,4 +1,6 @@
-﻿namespace Demo01
+﻿using System.Text;
+
+namespace Demo01
 {
     /// <summary>
     /// The Program class is the entry point of the application.
@@ -271,6 +273,242 @@
             //int result2 = ((--a + b) * c) / d;
             //int result3 = --a + b * c / d; 
             //int result4 = ++a + a++ - --a - a--;
+            #endregion
+            #endregion
+
+            #region string vs stringbuilder
+            //string x = "hello"; //string x = new string("hello");
+            //Console.WriteLine(x.GetHashCode());
+            //x = "world"; //x = new string("world");
+            //Console.WriteLine(x.GetHashCode());
+            //x += "!!!";
+            //Console.WriteLine(x.GetHashCode());
+            //////////////////////////////////////////////////////////////
+            //StringBuilder x = new StringBuilder("hello");
+            //Console.WriteLine(x.GetHashCode());
+            //x.Append(" world");
+            //Console.WriteLine(x.GetHashCode());
+            //x.Clear();
+            //x.AppendLine("world C#");
+            //x.Remove(1, 11);
+            //x.Replace("C#","DEPI");
+            //x.Insert(0, "welcome");
+            //Console.WriteLine(x);
+            #endregion
+
+            #region string Formatting
+            //Equation : 4 + 2 = 6
+            //int x = 4, y = 2;
+
+            //string result = "Equation : " + x + " + " + y + " = " + (x + y);
+
+            //string result1 = "Equation : ";
+            //result1 += x;
+            //result1 += " + ";
+            //result1 += y;
+            //result1 += " = ";
+            //result1 += (x + y);
+
+            //StringBuilder result2 = new StringBuilder("Equation : ");
+            ////block of code
+            //result2.Append(x);
+            ////block of code
+            //result2.Append(" + ");
+            //result2.Append(y);
+            //result2.Append(" = ");
+            //result2.Append(x + y);
+
+            //string result3 = string.Format("Equation : {0} + {1} = {2}", x, y, (x + y));
+
+            //string result4 = $"Equation : {x} + {y} = {x + y}";
+
+            #endregion
+
+            #region Conditional Statment
+            //if(condition) //true or false
+            //{
+            //    // excute statment if condition1 is true
+            //}
+            //else if(condition2) 
+            //{
+            //    // excute statment if condition2 is true
+            //}
+            //else
+            //{
+            //    // excute statment if all conditions false
+            //}
+
+            //if(condition)
+            //{
+
+            //}
+
+            //if(condition2)
+            //{
+
+            //}
+            //else
+            //{
+
+            //}
+
+            //varible = Value;
+            ////jumptable
+            //switch(varible)
+            //{
+            //    case value1:
+            //        //excute code
+            //        break;
+            //    case value2:
+            //        //excute code
+            //        break;
+            //    default:
+            //        break;
+            //}
+
+            #region EX01:
+            //write a protictive program to take from user number in first quarter of year
+            //then print equlavint month of it
+
+            #region IF
+            //Console.WriteLine("insert number of month in first qurter of year :");
+            ////int month = int.Parse(Console.ReadLine());
+            ////if (int.TryParse(Console.ReadLine(), out int month))
+            ////{
+            ////    if (month == 1)
+            ////        Console.WriteLine("jan");
+            ////    else if (month == 2)
+            ////        Console.WriteLine("fab");
+            ////    else if (month == 3)
+            ////        Console.WriteLine("mar");
+            ////    else
+            ////        Console.WriteLine("wrong month number");
+            ////}
+            ////else
+            ////{
+            ////    Console.WriteLine("wrong format for month number");
+            ////}
+            ////Console.WriteLine("Hello");
+
+
+            //if (!int.TryParse(Console.ReadLine(), out int month))
+            //    Console.WriteLine("wrong format for month number");
+
+            //if (month == 1)
+            //    Console.WriteLine("jan");
+            //else if (month == 2)
+            //    Console.WriteLine("fab");
+            //else if (month == 3)
+            //    Console.WriteLine("mar");
+            //else
+            //    Console.WriteLine("wrong month number");
+            #endregion
+            #region switch
+            //Console.WriteLine("insert number of month in first qurter of year :");
+            //if (!int.TryParse(Console.ReadLine(), out int month))
+            //    Console.WriteLine("wrong format for month number");
+            //switch(month)
+            //{
+            //    case 1:
+            //        Console.WriteLine("jan");
+            //        break;
+            //    case 2:
+            //        Console.WriteLine("fab");
+            //        break;
+            //    case 3:
+            //        Console.WriteLine("mar");
+            //        break;
+            //    default:
+            //        Console.WriteLine("wrong month number");
+            //        break;
+            //}
+            #endregion
+            #endregion
+            #region Ex:02
+            //int salary = 3000;
+            //switch(salary)
+            //{
+            //    case 3000:
+            //        Console.WriteLine("option03");
+            //        //Console.WriteLine("option02");
+            //        //Console.WriteLine("option01");
+            //        //break;
+            //        goto case 2000;
+            //    case 2000:
+            //        Console.WriteLine("option02");
+            //        //Console.WriteLine("option01");
+            //        break;
+            //    case 1000:
+            //        Console.WriteLine("option01");
+            //        // break;
+            //        goto case 3000;
+            //}
+            #endregion
+            #region EX:03
+            //write a protictive program to calculater that do (+ - / * %) take number then operator then number 
+            //and return result
+            //numbers is int and result is double and operator is char
+            //double result = 0;
+
+            //Console.WriteLine("enter first number");
+            //if(!int.TryParse(Console.ReadLine(),out int num01))
+            //{
+            //    Console.WriteLine("Invalid Input, please enter a valid integer");
+            //    return;
+            //}
+
+            //Console.WriteLine("enter operator (+  -  /   %   *)");
+            //if (!char.TryParse(Console.ReadLine(),out char op))
+            //{
+            //    Console.WriteLine("Invalid Input, please enter valid char");
+            //    return;
+            //}
+
+            //if(!(op == '+' || op == '-' || op == '/' || op == '%' || op == '*'))
+            //{
+            //    Console.WriteLine("Invalid Input, please enter valid Operator");
+            //    return;
+            //}
+
+            ////if(!(char.TryParse(Console.ReadLine(), out char op)
+            ////    &&
+            ////    (op == '+' || op == '-' || op == '/' || op == '%' || op == '*')))
+            ////{
+
+            ////}
+
+            //Console.WriteLine("enter last number");
+            //if (!int.TryParse(Console.ReadLine(), out int num02))
+            //{
+            //    Console.WriteLine("Invalid Input, please enter a valid integer");
+            //    return;
+            //}
+
+            //if((op == '/' || op == '%') && num02 == 0)
+            //{
+            //    Console.WriteLine("invalid Input, You can not devid by zero");
+            //    return;
+            //}
+
+            ////if(!int.TryParse(Console.ReadLine(), out int num02)
+            ////    ||
+            ////    ((op == '/' || op == '%') && num02 == 0))
+            ////{
+            ////    Console.WriteLine("Invalid Input, please enter a valid integer");
+            ////    return;
+            ////}
+
+            //switch(op)
+            //{
+            //    case '+': result = num01 + num02; break;
+            //    case '-': result = num01 - num02; break;
+            //    case '*': result = num01 * num02; break;
+            //    case '/': result = (double)num01 / num02; break;
+            //    case '%': result = num01 % num02; break;
+            //    //default: result = 0; break; 
+            //}
+            //Console.WriteLine(result);
+
             #endregion
             #endregion
         }
