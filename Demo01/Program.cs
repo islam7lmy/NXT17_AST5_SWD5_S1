@@ -511,6 +511,191 @@ namespace Demo01
 
             #endregion
             #endregion
+
+            #region Loops statment
+            // 10 steps to print 1 to 10
+            //Console.WriteLine("1");
+            //Console.WriteLine("2");
+            //Console.WriteLine("3");
+            //Console.WriteLine("4");
+            //Console.WriteLine("5");
+            //Console.WriteLine("6");
+            //Console.WriteLine("7");
+            //Console.WriteLine("8");
+            //Console.WriteLine("9");
+            //Console.WriteLine("10");
+
+            #region For
+            // start => i = 1
+            // condition => i<= 10 => true
+            // excute => Console.WriteLine(i);
+            // increment => i++
+            // condition => i<= 10 => true
+            // excute => Console.WriteLine(i);
+            // increment => i++
+            // condition => i<= 10 => false
+
+
+            //for (int i = 1; i <= 10; i++) //++i
+            //{
+            //    Console.WriteLine(i);
+            //}
+
+            //int i = 1; //start
+            //for (; ; i++)
+            //{
+            //    if (!(i <= 10))
+            //    {
+            //        //stop loop
+            //        break;
+            //    }
+
+            //    if(i % 2 == 0)
+            //    { 
+            //        //i++;
+            //        //skip current round
+            //        continue;
+
+            //    }
+
+            //    //excute
+            //    Console.WriteLine(i);
+
+            //    // increment
+            //    //i++;
+            //}
+            #endregion
+
+            #region while
+
+
+            //Console.WriteLine("enter first number");
+            //while (!int.TryParse(Console.ReadLine(), out int num01))
+            //{
+            //    Console.WriteLine("Invalid Input, please enter a valid integer");
+            //    //return;
+            //}
+            #endregion
+
+            #region do while
+            //string input;
+            //do
+            //{
+            //    Console.WriteLine("insert 0 if you want to stop");
+            //    input = Console.ReadLine();
+            //    Console.WriteLine($"you entered : {input}");
+            //} while (input != "0");
+
+            //do
+            //{
+            //    Console.WriteLine("enter first number");
+            //} while (!int.TryParse(Console.ReadLine(), out int num01));
+            #endregion
+
+            #region Foreach
+            //List<string> names = new List<string>()
+            //{ 
+            //    "ali",
+            //    "ahmed",
+            //    "sara"
+            //};
+
+            ////allow  modification
+            //for (int i = 0; i < names.Count ; i++)
+            //{
+            //    names[i] = "test";
+            //    Console.WriteLine(names[i]);
+            //}
+
+            ////not allow modification
+            //foreach(string item in names)
+            //{
+            //    //item = "test"; //invalid
+            //    Console.WriteLine(item);
+            //}
+            #endregion
+
+            //[quiz] write calculater program using while loop and switch statment and make it protictive
+            #endregion
+
+            #region block scpoe
+            //for (int i = 0; i < 10; i++)
+            //{
+            //    Console.WriteLine(i);
+            //}
+            //int i = 10;
+            ////i = 3;
+            //Console.WriteLine(i); //invalid [out of scope]
+
+            //{
+            //    //int i = 5;
+            //    { int i = 3; } //block
+            //    { int i = 10; } //block
+            //}
+
+            //while(!int.TryParse(Console.ReadLine(),out int num02))
+            //{
+            //    Console.WriteLine(num02);
+            //}
+
+            //num02 = 20;
+
+
+            //bool result = !int.TryParse(Console.ReadLine(), out int num01);
+            //if (!int.TryParse(Console.ReadLine(), out int num01))
+            //{
+            //    int y = 3;
+            //    Console.WriteLine(num01);
+            //}
+            //Console.WriteLine(y);
+            ////num01 = 2;
+
+            #endregion
+
+            #region arrays
+            #region one D array
+            //int[] numbers;
+            ///// declare reference of type array of integer
+            ///// referring to null => default value of reference datatype [null]
+            ///// 4 bytes will be allocated in stack => CLR 
+            ///// zero bytes will be allocated in heap => CLR
+
+            //numbers = new int[5];
+            ///// CLR allocate 20 byte [5 items * 4 byte] in heap
+            ///// intialized with default value of int [0]
+
+            ////numbers = new int[5] { 1, 2, 3, 4, 5 };
+            ////numbers = new int[] { 1, 2, 3, 4, 5, 6, 7 };
+
+            ////int[] numbers02 = { 1, 2, 3, 4, 5, 6, 7 }; // new int[7]{ 1, 2, 3, 4, 5, 6, 7 }
+
+            ////Console.WriteLine($"size of array: {numbers.Length}"); //size of array
+
+            ////numbers[4] = 1;
+            ////numbers[5] = 2;
+
+            /////[quiz] write a protictive program to read elements of array from user
+
+            //for (int i = 0; i < numbers.Length; i++)
+            //{
+            //    do
+            //    {
+            //        Console.WriteLine($"Please enter the {i + 1} element of array:");
+            //    }while(!int.TryParse(Console.ReadLine(), out numbers[i]));
+            //}
+
+            ////foreach (int i in numbers) //not valid
+            ////{
+            ////    int.TryParse(Console.ReadLine(), out item);
+            ////}
+
+
+            //foreach (int i in numbers)
+            //{
+            //    Console.WriteLine(i);
+            //}
+            #endregion
+            #endregion
         }
     }
 }
