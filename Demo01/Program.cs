@@ -1,4 +1,6 @@
-﻿using System.Text;
+﻿using System;
+using System.Collections;
+using System.Text;
 
 namespace Demo01
 {
@@ -865,6 +867,211 @@ namespace Demo01
 
             #endregion
             #endregion
+
+            #region boxing vs  unboxing
+            //Print(10);
+            //Print('t');
+            //Print(true);
+            //Print(DateTime.Now);
+
+            //int x = 10;
+            //int y = x;
+            //object obj = x; //implicit casting => boxing => vlaue type to reference type
+            //parent = child; 
+            //animal = dog;
+            //animal = cat;
+            //dog =(dog) animal; //explicit casting
+
+            //object[] data = new object[3];
+            //data[0] = 10;
+            //data[1] = 3200.50m;
+            //data[2] = "test"; //not boxing 
+
+            //ArrayList list = new ArrayList();
+            //list.Add(10);
+            //list.Add(true);
+            //list.Add("test");
+
+            //int x =(int) list[0]; //int = object; => child = parent;
+            //double y =(double) list[0]; //unboxing => int = object; => child = parent; 
+
+
+            //int a = 10;
+            //double b = a; //implicit casting
+            //Console.WriteLine(b);
+
+            //List<int> list = new List<int>();
+            //list.Add(10);
+
+            //int x = list[0];
+
+
+            //object O1 = new object();
+            //O1 = "string"; //not boxing
+
+            //O1 = 5;    // int[ValueType] to object[ReferenceType] -> Boxing
+            //O1 = 'A';  // char[ValueType] to object[ReferenceType] -> Boxing
+            //O1 = 3.3;  // double[ValueType] to object[ReferenceType] -> Boxing
+            //O1 = true; // bool[ValueType] to object[ReferenceType] -> Boxing
+            //O1 = new DateTime();  // DateTime[ValueType] to object[ReferenceType] -> Boxing
+            //O1 = new DateOnly(); // DateOnly[ValueType] to object[ReferenceType] -> Boxing
+            //O1 = new TimeOnly(); // TimeOnly[ValueType] to object[ReferenceType] -> Boxing
+            #endregion
+
+            #region Nullable types
+            //int age = null; //not valid
+            //int age = 0;
+            //int? age01 = null;
+            //double? age02 = null;
+
+            //int x = 8;
+            //int? y = x; //implicit casting
+            //y = null;
+            ////x =(int) y; //explicit casting
+
+            //if (y is not null)
+            //    x = (int)y;
+
+            //if (y.HasValue)
+            //    x = y.Value;
+
+            //x = y.HasValue ? y.Value : 0;
+
+            //x = y ?? 0;
+
+            //notify
+            //string t = "test";
+            //t = null;
+
+            //string? tt = "test";
+            //tt = null;
+
+            //Point p1 = new Point();
+            //p1 = null!; //null forgiven
+            //p1 = new Point();
+            //p1 = null;
+            #endregion
+
+            #region null operator
+            //int x = default; //0
+            //int[] arr = default; //null
+
+            //int length = arr.Length; //runtime error
+
+            //if (arr is not null)
+            //{
+            //    length = arr.Length;
+            //}
+
+            //if (arr is not null)
+            //{
+            //    for (int i = 0; i < arr.Length; i++)
+            //    {
+
+            //    }
+            //}
+
+            //for (int i = 0; arr is not null && i < arr.Length; i++)
+            //{
+
+            //}
+
+            //int? length = arr?.Length; //null propegation
+            ////arr?.length => if array is null value will be null
+
+            ////int length02 = arr?.Length is null ? 0 : arr.Length;
+            //int length02 = arr?.Length ?? 0 ; //null colascing
+
+            //employee?.department?.name ?? "N/A";
+            #endregion
+
+            #region Function
+            ////Program.PrintLine01();
+            //PrintLine01();
+
+
+            //Program p1 = new Program();
+            //p1.PrintLine();
+
+
+            //PrintLine(20, "$"); // passing by postion
+            //PrintLine(pattern: "$", number: 20); //passing by name
+            //PrintLine(20); //invalid
+
+            //printline with default value of parmeters
+            PrintLine();
+            PrintLine(20);
+            PrintLine(pattern: "$");
+            PrintLine(20, "$");
+
+            #endregion
+        }
+
+        #region Function
+        //print line of 10 element of "#";
+
+        ///// <summary>
+        ///// function to print line of 10 element of "#"
+        ///// object memeber method
+        ///// </summary>
+        //public void PrintLine()
+        //{
+        //    for (int i = 1; i <= 10; i++)
+        //    {
+        //        Console.WriteLine("#");
+        //    }
+        //}
+
+        ///// <summary>
+        ///// function to print line of 10 element of "#"
+        ///// class memeber method
+        ///// </summary>
+        //public static void PrintLine01()
+        //{
+        //    for (int i = 1; i <= 10; i++)
+        //    {
+        //        Console.WriteLine("#");
+        //    }
+        //}
+
+
+        //print line of number inserted by user and pattern inserted by user
+        /// <summary>
+        /// function to print line of number inserted by user and pattern inserted by user
+        /// </summary>
+        /// <param name="number">is count of rebbeted pattern</param>
+        /// <param name="pattern">is pattern to print</param>
+        //public static void PrintLine(int number,string pattern)
+        //{
+        //    for (int i = 1; i <= number; i++)
+        //    {
+        //        Console.Write(pattern);
+        //    }
+        //}
+
+        public static void PrintLine(int number = 10, string pattern = "#")
+        {
+            for (int i = 1; i <= number; i++)
+            {
+                Console.Write(pattern);
+            }
+        }
+        #endregion
+
+        //static void Print(object input)
+        //{
+        //    Console.WriteLine(input);
+        //}
+    }
+
+    class test
+    {
+        void dosomecode()
+        {
+            Program p1 = new Program(); //create object from type
+            p1.PrintLine();
+
+            Program.PrintLine01();
         }
     }
 }
