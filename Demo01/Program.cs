@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Text;
+using Comman;
 
 namespace Demo01
 {
@@ -1057,16 +1058,73 @@ namespace Demo01
             //Console.WriteLine($"sum = {sum} , mul = {mul}");
             #endregion
             #region Params
+            //int[] newarr =new int[] { 1, 2, 3, 4, 5 };
+            //SumArray(newarr);
 
+            //Console.WriteLine(SumArray(1, 2, 3, 4, 5));
+            //Console.WriteLine(SumArray(1, 2, 3, 4, 5,6 , 7 , 8));
+            //Console.WriteLine(SumArray(1, 2, 3));
             #endregion
             #endregion
 
             #region Exception Handling
 
+            //try
+            //{
+            //    Test.DoSomeCode();
+            //}
+            //catch (Exception ex)
+            //{
+            //    //log the exception
+            //    //Console.WriteLine(ex.Message);
+            //    throw ex; //rethrow the exception
+            //}
+            //finally 
+            //{
+            //    //database connection && files closing
+            //    //[release || deallocate || delete || close] unmanaged resources
+            //    Console.WriteLine("finally");
+            //}
+            //Console.WriteLine("program is still running");
             #endregion
 
-            #region Enums
+            #region Enums [labels]
+            #region EX : 01
+            //int day = (int)Days.sun;
 
+            //Days day1 = Days.mon;
+
+            //Console.WriteLine(day1); //label [mon]
+            //Console.WriteLine((int)day1); //label [mon] => value [2] 
+            #endregion
+            #region Ex : 02
+            //Console.WriteLine((byte)Gender.Male);
+            //Console.WriteLine((byte)Gender.male);
+            //Console.WriteLine((byte)Gender.M);
+            //Console.WriteLine((byte)Gender.m);
+
+            //string input = "male";
+            //string input01 = "Male";
+
+            //if (Enum.TryParse<Gender>(input, ignoreCase: true, out Gender result))
+            //{
+            //    Console.WriteLine((byte)result);
+            //    Console.WriteLine(result);
+            //}
+            //else
+            //{
+            //    Console.WriteLine("invalid gender");
+            //}
+            //if (Enum.TryParse<Gender>(input01, out Gender result01))
+            //{
+            //    Console.WriteLine((byte)result01);
+            //    Console.WriteLine(result01);
+            //}
+            //else
+            //{
+            //    Console.WriteLine("invalid gender");
+            //}
+            #endregion
             #endregion
         }
 
@@ -1217,15 +1275,102 @@ namespace Demo01
         //    //mul = num1 * num2;
         //}
         #endregion
-
+        #region Params
+        //static int SumArray(params int[] arr)
+        //{
+        //    int sum = 0;
+        //    foreach (int i in arr)
+        //    {
+        //        sum += i;
+        //    }
+        //    return sum;
+        //}
         #endregion
-
         //static void Print(object input)
         //{
         //    Console.WriteLine(input);
         //}
+        #endregion
+
+        #region Exception Handling
+        //static void DoSomeCode()
+        //{
+        //    int x, y, z;
+        //    Console.WriteLine("please enter first number");
+        //    x = int.Parse(Console.ReadLine());
+
+        //    Console.WriteLine("please enter second number");
+        //    y = int.Parse(Console.ReadLine());
+
+        //    z = x / y;
+
+        //    Console.WriteLine($"result is : {z}");
+
+        //    int[] arr = { 1, 2, 3, };
+        //    Console.WriteLine("please enter index  number to change it's value");
+        //    int index = int.Parse(Console.ReadLine());
+        //    arr[index] = 10;
+        //    Console.WriteLine(arr[index]);
+        //}
+
+        //static void DoSomeProtictiveCode()
+        //{
+        //    try
+        //    {
+        //        int x, y, z;
+
+        //        do
+        //        {
+        //            Console.WriteLine("please enter first number");
+
+        //        } while (!int.TryParse(Console.ReadLine(), out x));
+
+        //        do
+        //        {
+        //            Console.WriteLine("please enter second number");
+        //        } while (!int.TryParse(Console.ReadLine(), out y) || y == 0);
+
+        //        z = x / y;
+
+        //        Console.WriteLine($"result is : {z}");
+
+        //        int[] arr = { 1, 2, 3, };
+        //        int index;
+        //        do
+        //        {
+        //            Console.WriteLine("please enter index  number to change it's value");
+
+        //        } while (!int.TryParse(Console.ReadLine(), out index) || index < 0 || index >= arr.Length);
+
+        //        arr[index] = 10;
+        //        Console.WriteLine(arr[index]);
+        //    }
+        //    catch (DivideByZeroException ex)
+        //    {
+        //        Console.WriteLine("You can not divide by zero");
+        //    }
+        //    catch (IndexOutOfRangeException ex)
+        //    {
+        //        Console.WriteLine("Invalid index, please enter a valid index");
+        //    }
+        //    catch (FormatException ex)
+        //    {
+        //        Console.WriteLine("Invalid input, please enter a valid number");
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Console.WriteLine($"An error occurred: {ex.Message}");
+        //    }
+        //}
+        #endregion
+
     }
 
+    //class result
+    //{
+    //    public int sum;
+    //    public int mul;
+    //}
     #region Function calling [class member vs object member]
     //class test
     //{
@@ -1239,9 +1384,86 @@ namespace Demo01
     //} 
     #endregion
 
-    //class result
+    #region Enums [labels]
+    #region Ex: 01
+    //enum Days
     //{
-    //    public int sum;
-    //    public int mul;
+    //    sat,
+    //    sun,
+    //    mon,
+    //    tus,
+    //    wed,
+    //    thr,
+    //    fri
     //}
+
+    //enum Days : int
+    //{
+    //    sat = 10,
+    //    sun = 100,
+    //    mon = 200,
+    //    tus = 300,
+    //    wed = 400,
+    //    thr = 500,
+    //    fri = 600
+    //}
+
+    enum Days : byte //0 => 255
+    {
+        sat = 1,
+        sun,
+        mon,
+        tus,
+        wed,
+        thr,
+        fri
+    }
+    #endregion
+    #region Ex : 02
+    //enum Gender : byte
+    //{
+    //    Male = 1,
+    //    male = 1,
+    //    M = 1,
+    //    m = 1,
+    //    Female = 2,
+    //    female = 2,
+    //    F = 2,
+    //    f = 2
+    //}
+    #endregion
+    #region Ex : 03
+    //enum Branches : byte // 0 => 255
+    //{
+    //    smartvally = 105,
+    //    Madi,
+    //    _6october = 252,
+    //    Mansoura = 253,
+    //    Asyut = 254,
+    //    banha = 255,
+    //    //_10ramadan => not valid [is too large to fit it's datatype]
+    //}
+    #endregion
+    #region Ex : Quiz
+    ///class member method take tax and service and all ordered items 
+    ///print the shape as bellow:
+    /// order details :
+    /// pizza : 120
+    /// juice : 60
+    /// ـــــــــــــــــــ
+    /// total item : 180
+    /// tax : (total item * (tax / 100))
+    /// service : (total item * (service  / 100))
+    /// ـــــــــــــــــــ
+    /// total oreder : total + tax + service
+
+
+    /// Menu items is:
+    /// Pizaa = 120,
+    /// Burger = 150,
+    /// Juice = 40,
+    /// Salad = 30,
+    /// Dessert = 60
+    #endregion
+    #endregion
 }
