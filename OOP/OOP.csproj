@@ -11,10 +11,4 @@
     <ProjectReference Include="..\Comman\Comman.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Reference Include="FirstCode">
-      <HintPath>..\..\..\ClassLibrary\FirstCode\bin\Debug\net8.0\FirstCode.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-
 </Project>

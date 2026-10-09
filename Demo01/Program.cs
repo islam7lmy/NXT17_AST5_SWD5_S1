@@ -1179,25 +1179,25 @@ namespace Demo01
             //Console.WriteLine(myp);
             #endregion
 
-            ////////write 3 class memeber methos
-            //PermissionItems myp = PermissionItems.write;
-            ///////function to add permissions => current permission , permission to add => my.addpermission()
-            ////AddPermission(ref myp, PermissionItems.read);
-            ////AddPermission(ref myp, PermissionItems.delete);
-            ////AddPermission(ref myp, PermissionItems.execute);
+            //////write 3 class memeber methos
+            PermissionItems myp = PermissionItems.write;
+            /////function to add permissions => current permission , permission to add => my.addpermission()
+            //AddPermission(ref myp, PermissionItems.read);
+            //AddPermission(ref myp, PermissionItems.delete);
+            //AddPermission(ref myp, PermissionItems.execute);
 
-            //AddPermission(ref myp, PermissionItems.read, PermissionItems.delete, PermissionItems.execute);
+            Permission.AddPermission(ref myp, PermissionItems.read, PermissionItems.delete, PermissionItems.execute);
 
-            //Console.WriteLine(myp);
+            Console.WriteLine(myp);
 
-            ///////function to remove permissions
-            //RemovePermission(ref myp, PermissionItems.delete, PermissionItems.execute);
+            /////function to remove permissions
+            Permission.RemovePermission(ref myp, PermissionItems.delete, PermissionItems.execute);
 
-            //Console.WriteLine(myp);
+            Console.WriteLine(myp);
 
-            ///////function to check if permission exists return true else return false
+            /////function to check if permission exists return true else return false
 
-            //Console.WriteLine(CheckPermission(myp,PermissionItems.read) ? "allowed" : "denaid");
+            Console.WriteLine(Permission.CheckPermission(myp, PermissionItems.read) ? "allowed" : "denaid");
             #endregion
         }
 
@@ -1459,26 +1459,26 @@ namespace Demo01
         }
 
 
-        static void AddPermission(ref PermissionItems current, params PermissionItems[] PermissionToAdd)
-        {
-            foreach (PermissionItems item in PermissionToAdd)
-            {
-                current |= item;
-            }
-        }
+        //static void AddPermission(ref PermissionItems current, params PermissionItems[] PermissionToAdd)
+        //{
+        //    foreach (PermissionItems item in PermissionToAdd)
+        //    {
+        //        current |= item;
+        //    }
+        //}
 
-        static void RemovePermission(ref PermissionItems current, params PermissionItems[] PermissionToRemove)
-        {
-            foreach (PermissionItems item in PermissionToRemove)
-            {
-                current &= ~item;
-            }
-        }
+        //static void RemovePermission(ref PermissionItems current, params PermissionItems[] PermissionToRemove)
+        //{
+        //    foreach (PermissionItems item in PermissionToRemove)
+        //    {
+        //        current &= ~item;
+        //    }
+        //}
 
-        static bool CheckPermission(PermissionItems current, PermissionItems PermissionToCheck)
-        {
-            return ((current & PermissionToCheck) == PermissionToCheck);
-        }
+        //static bool CheckPermission(PermissionItems current, PermissionItems PermissionToCheck)
+        //{
+        //    return ((current & PermissionToCheck) == PermissionToCheck);
+        //}
         #endregion
 
     }
@@ -1594,35 +1594,35 @@ namespace Demo01
     }
     #endregion
     #region Ex : Permission
-    class users
-    {
-        public int id;
-        public string name;
-        public PermissionItems myp;  //1byte
+    //class users
+    //{
+    //    public int id;
+    //    public string name;
+    //    public PermissionItems myp;  //1byte
 
-        //public bool write;    //1 byte
-        //public bool read;     //1 byte
-        //public bool update;   //1 byte
-        //public bool delete;   //1 byte
-        //public bool execute;  //1 byte
-        //public bool select;   //1 byte
-        //public bool select1;  //1 byte
-        //public bool select2;  //1 byte
-    }
+    //    //public bool write;    //1 byte
+    //    //public bool read;     //1 byte
+    //    //public bool update;   //1 byte
+    //    //public bool delete;   //1 byte
+    //    //public bool execute;  //1 byte
+    //    //public bool select;   //1 byte
+    //    //public bool select1;  //1 byte
+    //    //public bool select2;  //1 byte
+    //}
 
 
-    [Flags] //data annotation (decrator) => lear new behavior
-    enum PermissionItems : byte //int // 4 byte => 4 *  8 bit => 32
-    {
-        write = 1,
-        read = 2,
-        update = 4,
-        delete = 8,
-        execute = 16,
-        select = 32,
-        select1 = 64,
-        select2 = 128,
-    }
+    //[Flags] //data annotation (decrator) => lear new behavior
+    //enum PermissionItems : byte //int // 4 byte => 4 *  8 bit => 32
+    //{
+    //    write = 1,
+    //    read = 2,
+    //    update = 4,
+    //    delete = 8,
+    //    execute = 16,
+    //    select = 32,
+    //    select1 = 64,
+    //    select2 = 128,
+    //}
     #endregion
     #endregion
 }
