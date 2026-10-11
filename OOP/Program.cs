@@ -65,7 +65,55 @@ namespace OOP
             //p1 = new Point(20);
             //Console.WriteLine(p1.Y); 
             #endregion
-            #region Employee
+            #region EX : Employee
+            //Employee emp = new Employee();
+            ////emp.Name = "ahmed omar ali ahmed amr";
+
+            //emp = new Employee(10, "ahmed omar ali ahmed amr", 1000, 5);
+
+            //Console.WriteLine(emp.Name);
+
+            ////emp.salary = 10000;
+            ////emp.SetSalary(10000);
+
+            //Console.WriteLine(emp.GetSalary());
+            //Console.WriteLine(emp.GetAge());
+            #endregion
+            #region Ex : PhoneBook
+            // name => number
+            // add contact
+            // remove contact
+            // get contact by name
+            // set contact by name
+            //PhoneBook[] book = new PhoneBook[10];
+            //book[0].Name = "Test";
+            //book[0].Number = "0120000000054";
+
+            PhoneBook book = new PhoneBook();
+
+            //book.Names = new string[0];
+            //book.Numbers = new string[15];
+
+            book.AddContact("ahmed", "01000000000000"); //if size of book is full resize book
+            book.AddContact("ali", "01000000000001");
+            book.AddContact("omr", "01000000000002");
+            book.AddContact("amr", "01000000000003");
+            book.AddContact("mohmed", "01000000000004");
+
+            for (int i = 0; i < book.Size; i++)
+            {
+                Console.WriteLine(book[i]); //=> ahmed : 01000000000000
+            }
+
+
+            //Console.WriteLine(book.GetContact(""));
+            //book.SetContact("", "");
+            //book.RemoveContact("");
+
+            //book["name"] = "number";
+            //Console.WriteLine(book["name"]);
+
+
 
             #endregion
             #endregion
