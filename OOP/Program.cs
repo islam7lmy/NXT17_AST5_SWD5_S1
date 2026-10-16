@@ -89,33 +89,52 @@ namespace OOP
             //book[0].Name = "Test";
             //book[0].Number = "0120000000054";
 
-            PhoneBook book = new PhoneBook();
+            //PhoneBook book = new PhoneBook();
 
             //book.Names = new string[0];
             //book.Numbers = new string[15];
 
-            book.AddContact("ahmed", "01000000000000"); //if size of book is full resize book
-            book.AddContact("ali", "01000000000001");
-            book.AddContact("omr", "01000000000002");
-            book.AddContact("amr", "01000000000003");
-            book.AddContact("mohmed", "01000000000004");
+            //Console.WriteLine($"book size : {book.Size} , book elements count : {book.Count}");
 
-            for (int i = 0; i < book.Size; i++)
-            {
-                Console.WriteLine(book[i]); //=> ahmed : 01000000000000
-            }
 
+            //book.AddContact("ahmed", "01000000000000"); //if size of book is full resize book
+            //book.AddContact("ali", "01000000000001");
+            //book.AddContact("omr", "01000000000002");
+            //book.AddContact("amr", "01000000000003");
+            //book.AddContact("mohmed", "01000000000004");
+
+            //Console.WriteLine($"book size : {book.Size} , book elements count : {book.Count}");
+
+            //for (int i = 0; i < book.Count; i++) /*book.Size*/
+            //{
+            //    Console.WriteLine(book[i]); //=> ahmed : 01000000000000
+            //}
 
             //Console.WriteLine(book.GetContact(""));
             //book.SetContact("", "");
             //book.RemoveContact("");
 
-            //book["name"] = "number";
-            //Console.WriteLine(book["name"]);
-
+            //book["mohmed"] = "010000001235"; //=> setcontact
+            //Console.WriteLine(book["mohmed"]); //=> get contact
 
 
             #endregion
+            #endregion
+
+            #region Class
+            Car c1 = new Car( 10 , "BMW" , 320);
+            c1.Id = 10;
+            c1.Model = "BMW";
+            c1.Speed = 320;
+            
+            
+            
+            Point p1; //= new Point();
+            p1.X = 10;
+            p1.Y = 20;
+
+            Console.WriteLine(p1);
+
             #endregion
         }
     }
