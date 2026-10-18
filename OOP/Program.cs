@@ -1,5 +1,6 @@
 ﻿using Comman;
 using Comman01;
+using OOP.Inheritance;
 using System;
 using System.Security;
 
@@ -122,20 +123,135 @@ namespace OOP
             #endregion
 
             #region Class
-            Car c1 = new Car( 10 , "BMW" , 320);
-            c1.Id = 10;
-            c1.Model = "BMW";
-            c1.Speed = 320;
-            
-            
-            
-            Point p1; //= new Point();
-            p1.X = 10;
-            p1.Y = 20;
+            #region Ex : Car
+            //Car c1; //= new Car(10, "BMW", 320);
+            //c1.Id = 10;
+            //c1.Model = "BMW";
+            //c1.Speed = 320;
 
-            Console.WriteLine(p1);
+            //c1 = new Car(); //=> id = 10 , model = "bmw" , speed = 320 
+            //c1 = new Car(20); //=> id = 20 , model = "bmw" , speed = 320 
+            //c1 = new Car(20,"BMW"); //=> id = 20 , model = "BMW" , speed = 320 
+            //c1 = new Car(10, "BMW", 320); //=> id = 20 , model = "BMW" , speed = 320 
+
+            //c1 = new Car(); 
+
+            //Point p1; //= new Point();
+            //p1.X = 10;
+            //p1.Y = 20;
+
+            //Console.WriteLine(p1); 
 
             #endregion
+            #region Inhertance
+            //Parent p = new Parent(10);
+            //Console.WriteLine(p.A);
+
+            //Child c = new Child(10, 20);
+            //Console.WriteLine(c.A);
+            //Console.WriteLine(c.B);
+            #endregion
+            #region Class Vs Struct
+            ///Car c1 = new Car();
+            ///Car c2 = c1; // shallow copy => copy just address
+            ///c2.Id = 99;
+            ///Console.WriteLine(c1.Id); // 99
+            ///Reference Type => stored refernce in stack an d object in heab
+            ///instilizition  => Must use new and call constructor
+            ///clr will always genrate empty paramterless constructor, if no user-defined constructor exists
+            ///clr will no longer generate empty parameterless constructor, if u write user-defined constructor
+            ///default Constructor => do notthing
+            ///Support Inheritance => [all access modifiers]
+            ///used for complex objects and behaviors
+
+
+
+            ///Point p1 = new Point();
+            ///Point p2 = p1; //deep copy => p2 is a copy of p1  but refer to different memory address
+            ///p2.X = 10;
+            ///p2.Y = 20;
+            ///p2.X = 99;
+            ///Console.WriteLine(p1.X); // 0
+            ///Value Type => stored in stack
+            ///instilizition  => not must call constructor
+            ///clr will generate Parameterless constructor
+            ///default constructor => initialize the attributes of struct with default values
+            ///Cannot inherit from another struct =>  [private, internal, public]
+            ///often used for small and simple ata => recomanded 16 bytes or less
+
+
+            //PhoneBook book = new PhoneBook();
+            //book.AddContact("ahmed", "010123456789");
+            //book.AddContact("ali", "010123456788");
+            //book.AddContact("omr", "010123456787");
+
+            //PhoneBook book1 = book;
+            //book1.Names = new string[10];
+            //book1.Numbers = new string[10];
+            //book1["ahmed"] = "000000000000000";
+
+            //Console.WriteLine(book["ahmed"]);   //000000000000000
+            //Console.WriteLine(book1["ahmed"]);  //000000000000000
+            #endregion
+            #endregion
+
+            #region PolyMorphism
+            #region OverLoading
+            //int num1 = 10, num2 = 20;
+            //Sum(num1, num2);
+
+            //double num3 = 10.5, num4 = 15.25;
+
+
+            //double num5 = 10.65;
+            //long num6 = 123456789;
+
+
+
+            #endregion
+            #endregion
         }
+
+        #region PolyMorphism 1. function overloading
+        ///1. datatype of parameters
+        ///2. count number of parameters
+        ///3. reorder parameters if not same datatype
+
+        public static int Sum(int x, int y)
+        {
+            return x + y;
+        }
+        //public static double Sum(int x, int y) //not overloading
+        //{
+        //    return x + y;
+        //}
+        public static int Sum(int x, int y, int z)
+        {
+            return x + y + z;
+        }
+        public static double Sum(double x, double y)
+        {
+            return x + y;
+        }
+        public static double Sum(double x, int y)
+        {
+            return x + y;
+        }
+        public static double Sum(int y, double x)
+        {
+            return x + y;
+        }
+
+        //public static decimal calcbill(params orderitems[] items)
+        //{
+        //    return 123m;
+        //}
+
+        //public static decimal calcbill(decimal taxrate, params orderitems[] items)
+        //{
+        //    decimal tax = 123m * taxrate / 100;
+        //    return 123m + tax;
+        //}
+        #endregion
     }
 }

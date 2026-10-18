@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -30,10 +31,37 @@ namespace OOP
         //clr will generate default parameterless constructor ,if no user defined constructor exists
         //public Car() { } Default constructor=> do nothing
 
-        public Car(int _id , string _name , int _speed)
+        ///Constructor chaning:
+        ///Calling Constructor from anthor constructor
+        public Car(int _id , string _model, int _speed)
         {
-            
+            Id = _id ;
+            Model = _model;
+            Speed = _speed ;
+            Console.WriteLine("ctor 04");
+        }
+        public Car(int _id, string _model) : this( _id , _model, 320)
+        {
+            //Id = _id;
+            //Model = _model;
+            //Speed = 320;
+            Console.WriteLine("ctor 03");
         }
 
+        public Car(int _id) : this(_id,"BMW")
+        {
+            //Id = _id;
+            //Model = "BMW";
+            //Speed = 320;
+            Console.WriteLine("ctor 02");
+        }
+
+        public Car() : this(10)
+        {
+            //Id = 10;
+            //Model = "BMW";
+            //Speed = 320;
+            Console.WriteLine("ctor 01");
+        }
     }
 }

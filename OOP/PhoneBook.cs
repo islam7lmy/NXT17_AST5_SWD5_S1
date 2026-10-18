@@ -3,10 +3,10 @@ using System.Xml.Linq;
 
 namespace OOP
 {
-    struct PhoneBook
+    class PhoneBook
     {
-        string[] Names;
-        string[] Numbers;
+        public string[] Names;
+        public string[] Numbers;
 
         ///Capacity of PhoneBook [max number of elements ca be saved in PhoneBook]
         int _size;
