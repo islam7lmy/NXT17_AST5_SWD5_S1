@@ -1,5 +1,6 @@
-﻿using Comman;
-using Comman01;
+﻿//using Comman;
+using OOP.PolyMorphism_Overriding;
+//using Comman01;
 using OOP.Inheritance;
 using System;
 using System.Security;
@@ -205,7 +206,97 @@ namespace OOP
 
             //double num5 = 10.65;
             //long num6 = 123456789;
+            #endregion
+            #region Overriding
+            //PolyMorphism_Overriding.TypeA typeA = new PolyMorphism_Overriding.TypeA(10);
+            //typeA.MyFun01();
+            //typeA.MyFun02();
 
+            //TypeB typeB = new TypeB(10, 20);
+            //typeB.MyFun01();
+            //typeB.MyFun02();
+            #endregion
+            #endregion
+
+            #region Binding
+            //PolyMorphism_Overriding.Employee emp;
+            ///// allocate 4 byte for reference from type employee in stack refer to null
+
+            //emp = new PolyMorphism_Overriding.Employee();
+            ///// allocate object in heap
+
+            #region What is binding
+            ///// reference from base type => object from derived type
+            //emp = new FullTimeEmployee();
+            //emp.Id = 10;
+            //emp.Name = "ahmed";
+            //emp.Age = 30;
+            ////emp.Salary = 20000; //not valid
+
+            //emp.ShowRole(); //hidding => static => will run related to reference
+            //emp.PrintDetails(); //overriding => dynamic => will run related to object
+
+
+            //PolyMorphism_Overriding.Employee emp = new PolyMorphism_Overriding.Employee();
+            ////emp.ShowRole();
+            //ProceesEmployee(emp);
+            //PolyMorphism_Overriding.FullTimeEmployee emp01 = new PolyMorphism_Overriding.FullTimeEmployee();
+            ////emp01.ShowRole();
+            //ProceesEmployee(emp01);
+            //PolyMorphism_Overriding.PartTimeEmployee emp02 = new PolyMorphism_Overriding.PartTimeEmployee();
+            ////emp02.ShowRole();
+            //ProceesEmployee(emp02);
+            //PolyMorphism_Overriding.FreeLanceEmployee emp03 = new PolyMorphism_Overriding.FreeLanceEmployee();
+            ////emp03.ShowRole();
+            //ProceesEmployee(emp03);
+            #endregion
+            #region Not Binding
+            //FullTimeEmployee emp = new FullTimeEmployee();
+
+            //PolyMorphism_Overriding.Employee emp01 = new FullTimeEmployee();
+
+
+            //FullTimeEmployee emp02 =(FullTimeEmployee) new PolyMorphism_Overriding.Employee();
+
+            //int x = 10;
+            //object obj = x;
+            //obj = "test";
+            //x =(int) obj;
+
+            ////animal = dog
+            ////animal = cat
+            ////dog =(dog) animal
+            #endregion
+            #region More Practise on Binding
+            TypeA typeA = new TypeC(1, 2, 3);
+            typeA.A = 11;
+            //typeA.B = 10;
+            //typeA.C = 20;
+
+            typeA.MyFun01(); //typeA
+            typeA.MyFun02(); //typeC
+
+            TypeB typeB = new TypeC(1, 2, 3);
+            typeB.A = 11;
+            typeB.B = 10;
+            //typeA.C = 20;
+
+            typeB.MyFun01(); //typeB
+            typeB.MyFun02(); //typeC
+
+            TypeA typeA1 = new TypeE(1, 2, 3, 4, 5);
+            TypeB typeB1 = new TypeE(1, 2, 3, 4, 5);
+            TypeC typeC1 = new TypeE(1, 2, 3, 4, 5);
+            TypeD typeD1 = new TypeD(1, 2, 3, 4);
+            TypeD typeD2 = new TypeE(1, 2, 3, 4, 5);
+            TypeD typeD3 = new TypeF(1, 2, 3, 4, 5);
+
+            typeA1.MyFun02(); //TypeC
+            typeB1.MyFun02(); //TypeC
+            typeC1.MyFun02(); //TypeC
+            typeD1.MyFun02(); //TypeD
+            typeD2.MyFun02(); //TypeE
+            typeD3.MyFun02(); //TypeD
 
 
             #endregion
@@ -251,6 +342,43 @@ namespace OOP
         //{
         //    decimal tax = 123m * taxrate / 100;
         //    return 123m + tax;
+        //}
+        #endregion
+
+        #region Binding
+        /// create reference form parent type => refere to object from child type
+        public static void ProceesEmployee(PolyMorphism_Overriding.Employee emp)
+        {
+            if (emp is not null)
+            {
+                emp.ShowRole();
+                emp.PrintDetails();
+            }
+        }
+
+        //public static void ProceesEmployee(FullTimeEmployee emp)
+        //{
+        //    if (emp is not null)
+        //    {
+        //        emp.ShowRole();
+        //        emp.PrintDetails();
+        //    }
+        //}
+        //public static void ProceesEmployee(PartTimeEmployee emp)
+        //{
+        //    if (emp is not null)
+        //    {
+        //        emp.ShowRole();
+        //        emp.PrintDetails();
+        //    }
+        //}
+        //public static void ProceesEmployee(FreeLanceEmployee emp)
+        //{
+        //    if (emp is not null)
+        //    {
+        //        emp.ShowRole();
+        //        emp.PrintDetails();
+        //    }
         //}
         #endregion
     }
