@@ -4,6 +4,8 @@ using OOP.PolyMorphism_Overriding;
 using OOP.Inheritance;
 using System;
 using System.Security;
+using OOP.nterfaces;
+using OOP.Interfaces;
 
 namespace OOP
 {
@@ -268,36 +270,106 @@ namespace OOP
             ////dog =(dog) animal
             #endregion
             #region More Practise on Binding
-            TypeA typeA = new TypeC(1, 2, 3);
-            typeA.A = 11;
-            //typeA.B = 10;
-            //typeA.C = 20;
+            //TypeA typeA = new TypeC(1, 2, 3);
+            //typeA.A = 11;
+            ////typeA.B = 10;
+            ////typeA.C = 20;
 
-            typeA.MyFun01(); //typeA
-            typeA.MyFun02(); //typeC
+            //typeA.MyFun01(); //typeA
+            //typeA.MyFun02(); //typeC
 
-            TypeB typeB = new TypeC(1, 2, 3);
-            typeB.A = 11;
-            typeB.B = 10;
-            //typeA.C = 20;
+            //TypeB typeB = new TypeC(1, 2, 3);
+            //typeB.A = 11;
+            //typeB.B = 10;
+            ////typeA.C = 20;
 
-            typeB.MyFun01(); //typeB
-            typeB.MyFun02(); //typeC
+            //typeB.MyFun01(); //typeB
+            //typeB.MyFun02(); //typeC
 
-            TypeA typeA1 = new TypeE(1, 2, 3, 4, 5);
-            TypeB typeB1 = new TypeE(1, 2, 3, 4, 5);
-            TypeC typeC1 = new TypeE(1, 2, 3, 4, 5);
-            TypeD typeD1 = new TypeD(1, 2, 3, 4);
-            TypeD typeD2 = new TypeE(1, 2, 3, 4, 5);
-            TypeD typeD3 = new TypeF(1, 2, 3, 4, 5);
+            //TypeA typeA1 = new TypeE(1, 2, 3, 4, 5);
+            //TypeB typeB1 = new TypeE(1, 2, 3, 4, 5);
+            //TypeC typeC1 = new TypeE(1, 2, 3, 4, 5);
+            //TypeD typeD1 = new TypeD(1, 2, 3, 4);
+            //TypeD typeD2 = new TypeE(1, 2, 3, 4, 5);
+            //TypeD typeD3 = new TypeF(1, 2, 3, 4, 5);
 
-            typeA1.MyFun02(); //TypeC
-            typeB1.MyFun02(); //TypeC
-            typeC1.MyFun02(); //TypeC
-            typeD1.MyFun02(); //TypeD
-            typeD2.MyFun02(); //TypeE
-            typeD3.MyFun02(); //TypeD
+            //typeA1.MyFun02(); //TypeC
+            //typeB1.MyFun02(); //TypeC
+            //typeC1.MyFun02(); //TypeC
+            //typeD1.MyFun02(); //TypeD
+            //typeD2.MyFun02(); //TypeE
+            //typeD3.MyFun02(); //TypeD
 
+
+            #endregion
+            #endregion
+
+            #region Interfaces
+
+            #region Ex01
+            //MyType myType = new MyType();
+            //MyTypeV2 myType = new MyTypeV2();
+
+            ///not valid to create object from interface because it's not fully implmented
+            ///IMytype mytype = new IMytype();
+            //IMytype myType = new MyType();  //MyType();
+            //myType.Salary = 100;
+            //myType.Myfun();
+            //myType.Myfun2();
+            ////myType.Print(); //not valid
+            //myType.IPrint(); //=> default implment method
+
+
+            //MyType myType01 = new MyType();
+            //myType01.IPrint(); //not valid  => to call default implment method from implmented class 
+            #endregion
+
+            #region Ex02
+            /// series by two => 0  2   4   6   8
+            /// series by three => 0   3   6   9   12
+            /// Series as datatype => current , getnext , reset 
+            /// class memeber method to print one line of series of specifed number user can decide
+            /// extend not refactor
+
+            //SeriesByTwo seriesByTwo = new SeriesByTwo();
+            //PrintSeriesLine(20, seriesByTwo);
+
+
+            //SeriesBySeven seriesBySeven = new SeriesBySeven();
+            //PrintSeriesLine(50, seriesBySeven);
+
+            #endregion
+
+            #region Implment Interface Implicitly Vs Implment Interface Explicitly
+            //Interfaces.Car car = new Interfaces.Car();
+            //car.Speed = 20;
+            //car.Backward();
+            //car.Forward();
+            //car.Left();
+            //car.Right();
+
+
+            //AirPlan airPlan = new AirPlan();
+            //airPlan.Speed = 100;
+            //not valid => because it's explicit implmintation
+            //airPlan.Forward();
+            //airPlan.Left();
+            //airPlan.Right();
+
+            //IMoveable moveablePlan = airPlan;
+            //moveablePlan.Speed = 100;
+            //moveablePlan.Backward();
+            //moveablePlan.Forward();
+            //moveablePlan.Left();
+            //moveablePlan.Right();
+
+
+            //IFlyable flyablePlan = airPlan;
+            //flyablePlan.Speed = 500; // => implicit implmentation
+            ////flyablePlan.Backward(); //not valid
+            //flyablePlan.Forward();
+            //flyablePlan.Left();
+            //flyablePlan.Right();
 
             #endregion
             #endregion
@@ -379,6 +451,41 @@ namespace OOP
         //        emp.ShowRole();
         //        emp.PrintDetails();
         //    }
+        //}
+        #endregion
+
+        #region Interfaces
+        public static void PrintSeriesLine(int countofelements, ISeries series)
+        {
+            for (int i = 0; i < countofelements; i++)
+            {
+                Console.Write($"{series.Current} \t");
+                series.GetNext();
+            }
+            Console.WriteLine();
+            series.Reset();
+        }
+
+        //public static void PrintSeriesLine(int countofelements, SeriesByTwo series)
+        //{
+        //    for (int i = 0; i < countofelements; i++)
+        //    {
+        //        Console.Write($"{series.Current} \t");
+        //        series.GetNext();
+        //    }
+        //    Console.WriteLine();
+        //    series.Reset();
+        //}
+
+        //public static void PrintSeriesLine(int countofelements, SeriesByThree series)
+        //{
+        //    for (int i = 0; i < countofelements; i++)
+        //    {
+        //        Console.Write($"{series.Current} \t");
+        //        series.GetNext();
+        //    }
+        //    Console.WriteLine();
+        //    series.Reset();
         //}
         #endregion
     }
