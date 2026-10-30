@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace OOP.Interfaces
 {
+   
     interface ISeries
     {
         int Current { get; }

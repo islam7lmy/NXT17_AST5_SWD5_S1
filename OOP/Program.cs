@@ -1,11 +1,14 @@
 ﻿//using Comman;
-using OOP.PolyMorphism_Overriding;
 //using Comman01;
+using Microsoft.VisualBasic;
 using OOP.Inheritance;
-using System;
-using System.Security;
-using OOP.nterfaces;
 using OOP.Interfaces;
+using OOP.nterfaces;
+using OOP.PolyMorphism_Overriding;
+using System;
+using System.Net;
+using System.Security;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace OOP
 {
@@ -305,7 +308,6 @@ namespace OOP
             #endregion
 
             #region Interfaces
-
             #region Ex01
             //MyType myType = new MyType();
             //MyTypeV2 myType = new MyTypeV2();
@@ -323,7 +325,6 @@ namespace OOP
             //MyType myType01 = new MyType();
             //myType01.IPrint(); //not valid  => to call default implment method from implmented class 
             #endregion
-
             #region Ex02
             /// series by two => 0  2   4   6   8
             /// series by three => 0   3   6   9   12
@@ -339,7 +340,6 @@ namespace OOP
             //PrintSeriesLine(50, seriesBySeven);
 
             #endregion
-
             #region Implment Interface Implicitly Vs Implment Interface Explicitly
             //Interfaces.Car car = new Interfaces.Car();
             //car.Speed = 20;
@@ -371,6 +371,151 @@ namespace OOP
             //flyablePlan.Left();
             //flyablePlan.Right();
 
+            #endregion
+            #region Shallow Copy vs Deep Copy
+            //int x = 10;
+            //int y = 20;
+            //y = x;
+            //y = 30;
+            //Console.WriteLine(x);
+            //Console.WriteLine(y);
+
+            //int[] arr01 = { 1, 2, 3 };
+            //int[] arr02 = { 4, 5, 6 };
+
+            //Console.WriteLine($"arr01 = {arr01.GetHashCode()}");
+            //Console.WriteLine($"arr02 = {arr02.GetHashCode()}");
+
+            #region Shallow Copy [default for reference type]
+            //arr02 = arr01;
+            //Console.WriteLine("after Shallow copy");
+
+            //Console.WriteLine($"arr01 = {arr01.GetHashCode()}");
+            //Console.WriteLine($"arr02 = {arr02.GetHashCode()}");
+
+            //arr02[0] = 99;
+            //Console.WriteLine(arr01[0]);
+            #endregion
+            #region Deep Copy
+            ////arr02 = new int[] { 1, 2, 3 };
+            ////arr02 = (int[]) new object();
+            //arr02 = (int[]) arr01.Clone();
+            //Console.WriteLine("after Deep copy");
+
+            //Console.WriteLine($"arr01 = {arr01.GetHashCode()}");
+            //Console.WriteLine($"arr02 = {arr02.GetHashCode()}");
+
+            ////arr02[0] = 99;
+            ////Console.WriteLine(arr01[0]);
+
+            //foreach (int item in arr02)
+            //{
+            //    Console.Write($"{item}\t");
+            //}
+            //Console.WriteLine();
+
+            ////reference compare address (gethashcode)
+            //if(arr01 == arr02)
+            //    Console.WriteLine("equal");
+            //else
+            //    Console.WriteLine("Not equal");
+            #endregion
+
+            #endregion
+            #region Built-In Interface ICloneable
+            //Interfaces.Employee emp01 = new Interfaces.Employee()
+            //{
+            //    Id = 1,
+            //    Name = "Foo",
+            //    empAddress = new Address() { City = "cairo" },
+            //    Salary = 1000
+            //};
+            //Console.WriteLine(emp01);
+
+            //Interfaces.Employee emp02 = new Interfaces.Employee()
+            //{
+            //    Id = 2,
+            //    Name = "two",
+            //    empAddress = new Address() { City = "cairo" },
+            //    Salary = 2000
+            //};
+            //Console.WriteLine(emp02);
+
+            //Console.WriteLine($"Emp01 : {emp01.GetHashCode()}");
+            //Console.WriteLine($"Emp02 : {emp02.GetHashCode()}");
+
+            /////make me can to Deep Copy Employee
+            ////emp02 = Interfaces.Employee.DeepCopy(emp01);
+            //emp02 = (Interfaces.Employee) emp01.Clone();
+
+            //Console.WriteLine("after Deep copy");
+            //Console.WriteLine($"Emp01 : {emp01.GetHashCode()}");
+            //Console.WriteLine($"Emp02 : {emp02.GetHashCode()}");
+
+            //emp02.empAddress.City = "test";
+
+            //Console.WriteLine(emp01);
+            //Console.WriteLine(emp02);
+            #endregion
+            #region Built-In Interface IComparable
+            //int[] arr = { 9, 8, 11, 7, 2, 3, 4, 5, 1 };
+            ////Array.Sort(arr);
+
+            //for (int i = 0; i < arr.Length; i++)
+            //{
+            //    for (int j = 0; j < arr.Length - i - 1; j++)
+            //    {
+            //        //if (arr[j] > arr[j + 1])
+            //        //+ve : arr[j] > arr[j + 1]
+            //        //-ve : arr[j] < arr[j + 1]
+            //        //0 : arr[j] == arr[j + 1]
+            //        if (arr[j].CompareTo(arr[j + 1]) > 0)
+            //            Swap(ref arr[j], ref arr[j + 1]);
+            //    }
+            //}
+
+            //foreach (int i in arr)
+            //{
+            //    Console.Write($"{i} \t");
+            //}
+
+            //string[] strings = { "omr", "ahmed", "ali" };
+            ////Array.Sort(strings);
+            //for (int i = 0; i < strings.Length; i++)
+            //{
+            //    for (int j = 0; j < strings.Length - i - 1; j++)
+            //    {
+            //        if (strings[j].CompareTo(strings[j + 1]) > 0)
+            //            Swap(ref strings[j], ref strings[j + 1]);
+            //    }
+            //}
+            //foreach (string i in strings)
+            //{
+            //    Console.Write($"{i} \t");
+            //}
+
+            //Interfaces.Employee[] employees =
+            //{
+            //    new Interfaces.Employee() { Id = 10 , Name = "Ahmed" , empAddress =new Address(){ City = "Cairo" }, Salary = 10_000},
+            //    new Interfaces.Employee() { Id = 20 , Name = "Ali" , empAddress =new Address(){ City = "Alex"}, Salary = 4_000},
+            //    new Interfaces.Employee() { Id = 30 , Name = "Omar" , empAddress =new Address(){ City = "Asyut"}, Salary = 8_000},
+            //    new Interfaces.Employee() { Id = 40 , Name = "Amr" , empAddress =new Address(){ City = "Fayoum"}, Salary = 5_000},
+            //};
+
+            //Array.Sort(employees);
+            //for (int i = 0; i < employees.Length; i++)
+            //{
+            //    for (int j = 0; j < employees.Length - i - 1; j++)
+            //    {
+            //        if (employees[j].CompareTo(employees[j + 1]) > 0)
+            //            Swap(ref employees[j], ref employees[j + 1]);
+            //    }
+            //}
+
+            //foreach (Interfaces.Employee i in employees)
+            //{
+            //    Console.WriteLine($"{i}");
+            //}
             #endregion
             #endregion
         }
@@ -487,6 +632,43 @@ namespace OOP
         //    Console.WriteLine();
         //    series.Reset();
         //}
+
+        public static void Swap(ref IComparable a, ref IComparable b)
+        {
+            IComparable temp = a;
+            a = b;
+            b = temp;
+        }
+        public static void Swap(ref int a, ref int b)
+        {
+            int temp = a;
+            a = b;
+            b = temp;
+        }
+        public static void Swap(ref string a, ref string b)
+        {
+            string temp = a;
+            a = b;
+            b = temp;
+        }
+        public static void Swap(ref Interfaces.Employee a, ref Interfaces.Employee b)
+        {
+            Interfaces.Employee temp = a;
+            a = b;
+            b = temp;
+        }
+
+        public static void Sorting(IComparable[] arr)
+        {
+            for (int i = 0; i < arr.Length; i++)
+            {
+                for (int j = 0; j < arr.Length - i - 1; j++)
+                {
+                    if (arr[j].CompareTo(arr[j + 1]) > 0)
+                        Swap(ref arr[j], ref arr[j + 1]);
+                }
+            }
+        }
         #endregion
     }
 }
