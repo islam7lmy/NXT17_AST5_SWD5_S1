@@ -1,9 +1,12 @@
 ﻿//using Comman;
 //using Comman01;
+using Comman;
 using Microsoft.VisualBasic;
+using OOP.Abstraction;
 using OOP.Inheritance;
 using OOP.Interfaces;
 using OOP.nterfaces;
+using OOP.Operator_OverLoading;
 using OOP.PolyMorphism_Overriding;
 using System;
 using System.Net;
@@ -517,6 +520,55 @@ namespace OOP
             //    Console.WriteLine($"{i}");
             //}
             #endregion
+            #endregion
+
+            #region Abstraction
+            //SeriesByTwo seriesByTwo = new SeriesByTwo();
+            //seriesByTwo.Current = 10;//not valid because Current has protected setter
+            //seriesByTwo.Current = 10;//not valid because Current has protected internal setter ,and we are not in the same assembly
+            //IShape square = new Sqare(10);
+            //Console.WriteLine(square.CalculateArea());
+            //Console.WriteLine(square.CalculatePerimeter());
+
+            #endregion
+
+            #region Operator OverLoading
+            //1 + 2i => complex 
+            //3 + 4i => complex 
+            //5 + 6i => complex 
+            //---------------------
+            //9 + 12i => complex
+
+            //Complex c1 = new Complex(1, 2);
+            ////Console.WriteLine(c1);
+            //Complex c2 = new Complex(3, 4);
+            //Complex c3 = new Complex(5, 6);
+            //Complex c5 = default;
+
+            ////Complex c4 = c1 + c2 + c3 + c5;
+            ////Console.WriteLine(c4);
+
+            ////Complex c6 = c1 - c2 - c3 - c5;
+
+            //Console.WriteLine(c1++); //postfix => return c1 then increment c1 => print 1+2i then c1 = 2 + 3i 
+            //Console.WriteLine(++c1); //prefix => increment c1 then return c1 => c1 = 3 + 4i then print 3+4i
+            //Console.WriteLine(c1--);
+            //Console.WriteLine(--c1);
+
+            Complex c1 = new Complex(1, 2);
+            Complex c2 = new Complex(1, 2);
+
+            if (c1 == c2)
+            {
+                Console.WriteLine("c1 is equal to c2");
+            }
+            else
+            {
+                Console.WriteLine("c1 is not equal to c2");
+            }
+
+
+
             #endregion
         }
 
