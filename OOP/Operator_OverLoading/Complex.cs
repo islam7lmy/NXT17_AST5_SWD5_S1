@@ -8,6 +8,7 @@ namespace OOP.Operator_OverLoading
 {
     internal class Complex
     {
+
         public int Real { get; set; }
         public int Imag { get; set; }
 
@@ -20,6 +21,18 @@ namespace OOP.Operator_OverLoading
         public override string ToString()
         {
             return $"{Real} + {Imag}i";
+        }
+
+        public override bool Equals(object? obj)
+        {
+            return obj is Complex complex &&
+                   Real == complex.Real &&
+                   Imag == complex.Imag;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Real, Imag);
         }
 
         public static Complex operator +(Complex a, Complex b)
@@ -82,6 +95,17 @@ namespace OOP.Operator_OverLoading
 
             return (a?.Real ?? 0) < (b?.Real ?? 0);
         }
+
+        public static bool operator ==(Complex? left, Complex? right)
+        {
+            return EqualityComparer<Complex>.Default.Equals(left, right);
+        }
+
+        public static bool operator !=(Complex? left, Complex? right)
+        {
+            return !(left == right);
+        }
+
         //public static bool operator ==(Complex a, Complex b)
         //{
         //    if ((a?.Real ?? 0) == (b?.Real ?? 0))
@@ -93,5 +117,7 @@ namespace OOP.Operator_OverLoading
         //{
         //    return !(a == b);
         //}
+
+
     }
 }

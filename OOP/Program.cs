@@ -8,6 +8,7 @@ using OOP.Interfaces;
 using OOP.nterfaces;
 using OOP.Operator_OverLoading;
 using OOP.PolyMorphism_Overriding;
+using OOP.Static;
 using System;
 using System.Net;
 using System.Security;
@@ -555,19 +556,131 @@ namespace OOP
             //Console.WriteLine(c1--);
             //Console.WriteLine(--c1);
 
-            Complex c1 = new Complex(1, 2);
-            Complex c2 = new Complex(1, 2);
+            //Complex c1 = new Complex(1, 2);
+            //Complex c2 = new Complex(1, 2);
 
-            if (c1 == c2)
-            {
-                Console.WriteLine("c1 is equal to c2");
-            }
-            else
-            {
-                Console.WriteLine("c1 is not equal to c2");
-            }
+            //if (c1 == c2)
+            //{
+            //    Console.WriteLine("c1 is equal to c2");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("c1 is not equal to c2");
+            //}
+
+            //string test = "ahmed";
+            //string test2 = "ahmed";
+
+            //Console.WriteLine(test.GetHashCode());
+            //Console.WriteLine(test2.GetHashCode());
+
+            //if (test.Equals(test2))
+            //{
+            //    Console.WriteLine("test is equal to test2");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("test is not equal to test2");
+            //}
 
 
+            //if (test == test2)
+            //{
+            //    Console.WriteLine("test is equal to test2");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("test is not equal to test2");
+            //}
+
+            #region Equals and GetHashcode
+            //Complex c1 = new Complex(1, 2);
+            //Complex c2 = new Complex(1, 2);
+
+            //Console.WriteLine(c1.GetHashCode());
+            //Console.WriteLine(c2.GetHashCode());
+
+            //if (c1 == c2)
+            //    Console.WriteLine("Equals");
+            //else
+            //    Console.WriteLine("Not Equals");
+
+            //if (c1.Equals(c2))
+            //    Console.WriteLine("Equals");
+            //else
+            //    Console.WriteLine("Not Equals");
+
+            /////hashcode == hashcode => hashcode collision
+            /////equals
+
+            //HashSet<Complex> complexes = new HashSet<Complex>();
+            //complexes.Add(c1);
+            //complexes.Add(c2);
+
+            //Console.WriteLine(complexes.Count);
+            #endregion
+
+
+            #endregion
+
+            #region User-defined Casting Operator
+            //int x = 5;
+            //double y = 110.25;
+            //y = x; //implicit
+            //x = (int)y; //explicit
+            //x.Add(10);
+            //Extintions.Add(x, 10);
+
+
+            //Operator_OverLoading.Employee emp = new Operator_OverLoading.Employee();
+            //emp.Id = 10;
+            //emp.FirstName = "ahmed";
+            //emp.LastName = "ali";
+            //emp.BirthDate = new DateOnly(2000,03,15);
+            //emp.Salary = 3_000;
+            //emp.Address = new Operator_OverLoading.Address("el galaa street", "Cairo" , "Egypt");
+
+
+            //Operator_OverLoading.Employee emp = new Operator_OverLoading.Employee()
+            //{
+            //    Id = 10,
+            //    FirstName = "ahmed",
+            //    LastName = "ali",
+            //    BirthDate = new DateOnly(2000, 03, 15),
+            //    Salary = 3_000,
+            //    Address = new Operator_OverLoading.Address("el galaa street", "Cairo", "Egypt"),
+            //};
+
+            //Operator_OverLoading.Employee copyEmp = new Operator_OverLoading.Employee(emp);
+
+            //copyEmp.Address.City = "Banha";
+            //Console.WriteLine(emp.Address.City);
+            //Console.WriteLine(copyEmp.Address.City);
+
+
+            //EmployeeViewModel empView = new EmployeeViewModel()
+            //{
+            //    FullName = $"{emp.FirstName} {emp.LastName}",
+            //    Age = DateTime.Now.Year - emp.BirthDate.Year,
+            //    Address = $"{emp.Address.AddressDetails}, {emp.Address.City}, {emp.Address.Country}",
+            //    NetSalary = emp.Salary - emp.Detuctions
+            //};
+
+            //EmployeeViewModel empView; //= new EmployeeViewModel(emp);
+            ////empView = emp; //implicit => not recomended
+            //empView = (EmployeeViewModel)emp; //explicit => recomended
+            //empView = EmployeeExtintions.ToEmployeeViewModel(emp);
+            //empView = emp.ToEmployeeViewModel();//extintion method
+
+
+            #endregion
+
+            #region Static
+            //Console.WriteLine(Utility.PI);
+            //Console.WriteLine(Utility.calcCircleArea(10));
+            #endregion
+
+            #region Sealed
 
             #endregion
         }
